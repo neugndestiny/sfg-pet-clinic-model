@@ -3,25 +3,36 @@ package warakorn.framework.sfgpetclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import warakorn.springframework.sfgpetclinic.model.Owner;
+import warakorn.springframework.sfgpetclinic.model.PetType;
 import warakorn.springframework.sfgpetclinic.model.Vet;
 import warakorn.springframework.sfgpetclinic.services.OwnerService;
+import warakorn.springframework.sfgpetclinic.services.PetTypeService;
 import warakorn.springframework.sfgpetclinic.services.VetService;
-import warakorn.springframework.sfgpetclinic.services.map.OwnerServiceMap;
-import warakorn.springframework.sfgpetclinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("doggo");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("catto");
+        PetType savedCatPetType = petTypeService.save(cat);
+
         Owner owner1 = new Owner();
         owner1.setId(1L);
         owner1.setFirstName("Neung");
