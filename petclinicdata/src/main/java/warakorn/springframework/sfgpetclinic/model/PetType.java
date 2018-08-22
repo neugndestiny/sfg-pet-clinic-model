@@ -1,8 +1,8 @@
 package warakorn.springframework.sfgpetclinic.model;
 
 public class PetType extends BaseEntity {
-    private String name;
 
+    private String name;
 
     public String getName() {
         return name;

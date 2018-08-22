@@ -1,6 +1,5 @@
 package warakorn.springframework.sfgpetclinic.services.map;
 
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import warakorn.springframework.sfgpetclinic.model.PetType;
 import warakorn.springframework.sfgpetclinic.services.PetTypeService;
@@ -12,7 +11,7 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
 
     @Override
     public Set<PetType> findAll() {
-        return null;
+        return super.findAll();
     }
 
     @Override
@@ -21,8 +20,8 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
     }
 
     @Override
-    public void deleteById(Long id) {
-        super.deleteById(id);
+    public PetType save(PetType object) {
+        return super.save(object);
     }
 
     @Override
@@ -31,7 +30,7 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
     }
 
     @Override
-    public PetType save(PetType object) {
-        return null;
+    public void deleteById(Long id) {
+        super.deleteById(id);
     }
 }
