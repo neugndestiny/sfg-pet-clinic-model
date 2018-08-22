@@ -15,7 +15,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
     T findById(ID id) {
         return map.get(id);
     }
-
+                                                         
     T save(T object){
         if(object != null) {
             if(object.getId() == null) {
@@ -47,6 +47,6 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
             nextId = 1L;
         }
 
-        return Collections.max(map.keySet()) + 1;
+        return nextId;
     }
 }
