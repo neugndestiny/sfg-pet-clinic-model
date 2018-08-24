@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Profile("springdatajpa")
+@Profile("beta")
 public class OwnerSDJpaService implements OwnerService {
 
     private final OwnerRepository ownerRepository;
